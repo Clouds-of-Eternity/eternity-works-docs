@@ -5,9 +5,13 @@
   <title>Eternity Works Docs</title>
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <link rel="stylesheet" href="themes/havencore.css">
+  <link rel="stylesheet" href="themes/havencore.css" id="pageTheme">
+  <link rel="stylesheet" href="themes/shared.css">
 </head>
 <body>
+  <nav class="app-nav">
+    <button id="changeThemeButton" class="navbar-button">Toggle Night Mode</button>
+  </nav>
   <div id="app"></div>
   <script>
     window.$docsify = {
@@ -15,8 +19,30 @@
       repo: '',
       loadSidebar: true,
       sidebarDisplayLevel: 0, // set sidebar display level
-      enableSidebarCollapse: true
+      enableSidebarCollapse: true,
+      skipLink: false
     }
+
+    var isLightTheme = true;
+    
+    document.getElementById('changeThemeButton').onclick = function ()
+    { 
+      var themeElement = document.getElementById('pageTheme');
+
+      if (isLightTheme)
+      {
+        console.log("Good night, paradise...");
+        themeElement.href = "themes/dreamcore.css";
+        this.childNodes[0].nodeValue = "Toggle Day Mode";
+      }
+      else 
+      {
+        console.log("One more day...");
+        themeElement.href = "themes/havencore.css";
+        this.childNodes[0].nodeValue = "Toggle Night Mode";
+      }
+      isLightTheme = !isLightTheme;
+    };
   </script>
   <!-- Docsify resource -->
   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>

@@ -1,0 +1,10 @@
+:root {
+    --page-text: #85528f;
+    --page-color: #20152b;
+    --page-tint: #19102d;
+    --page-darker: #160e22;
+    --page-darkest: #090815;
+
+    --code-highlight-comments: #4d7473;
+    --code-highlight-braces: #85528f;
+}
